@@ -1,0 +1,668 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+body {
+  /* background-color: rgb(189, 73, 73); */
+  background-color: rgb(77, 142, 77);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.container {
+  width: 650px;
+  min-height: 100vh;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.175);
+}
+
+.logo {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-right {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-right button {
+  background-color: rgba(228, 226, 226, 0.2);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 5px 15px;
+}
+
+.nav-right button.more-options {
+  padding: 0;
+  font-weight: 700;
+  font-size: 20px;
+  width: 30px;
+}
+
+.progress-line {
+  position: relative;
+  top: -2px;
+  height: 3px;
+  width: 0%;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.timer-container {
+  min-height: 280.4px;
+  margin: 0 80px;
+  background-color: rgba(255, 255, 255, 0.096);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modes {
+  display: flex;
+}
+
+.modes button {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 3px 15px;
+  font-size: 15px;
+}
+
+.modes button.active-mode {
+  background-color: rgba(0, 0, 0, 0.173);
+  font-weight: 600;
+}
+
+.timer {
+  font-size: 130px;
+  font-family: monospace;
+}
+
+.manipulation-btns {
+  width: 100%;
+  height: 59.4px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-btn {
+  border: none;
+  border-bottom: 6px solid rgba(128, 128, 128, 0.153);
+  background-color: white;
+  padding: 12px 0;
+  width: 180px;
+  border-radius: 5px;
+  font-size: 20px;
+  color: rgb(77, 142, 77);
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.start-btn-clicked {
+  border-bottom: none;
+}
+
+.next-btn {
+  display: none;
+  position: absolute;
+  right: 35px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 50px;
+}
+
+.description {
+  text-align: center;
+  margin: 20px;
+}
+
+.description span {
+  color: rgb(194, 183, 183);
+}
+
+.description p {
+  font-size: 17px;
+  font-weight: 450;
+}
+
+.tasks-container {
+  margin: 0 80px;
+}
+
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgb(205, 205, 205);
+  margin-bottom: 20px;
+}
+
+.tasks-header span {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.tasks-header button {
+  background-color: rgba(255, 255, 255, 0.173);
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 700;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* display: flex; */
+
+#add-task-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 17px 0 30px 0;
+  width: 100%;
+  height: 60px;
+  border: 2px dashed rgba(184, 184, 184, 0.482);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.066);
+  cursor: default;
+}
+
+.hiden-task-btn {
+  display: none;
+}
+
+#add-task-btn i {
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.655);
+}
+
+#add-task-btn span {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.655);
+  font-weight: 500;
+}
+
+#add-task-btn:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+  border: 2px dashed rgba(184, 184, 184, 0.649);
+}
+
+#add-task-btn:hover i,
+#add-task-btn:hover span {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+  background-color: white;
+  border-radius: 4px;
+  border-left: 6px solid transparent;
+  cursor: pointer;
+}
+
+.task:hover {
+  border-left: 6px solid rgb(195, 195, 195);
+}
+
+.active-task {
+  border-left: 6px solid black;
+}
+
+.task-left,
+.task-right {
+  display: flex;
+  align-items: center;
+}
+
+.task .completed-icon {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.task .completed-icon i {
+  color: rgba(128, 128, 128, 0.219);
+}
+
+.task .completed-icon i:hover {
+  color: rgba(63, 63, 63, 0.219);
+}
+
+.completed {
+  color: rgb(0, 169, 56) !important;
+}
+
+.completed-goal {
+  text-decoration: line-through;
+  color: rgb(180, 180, 180) !important;
+}
+
+.completed:hover {
+  color: rgb(0, 115, 38) !important;
+}
+
+.task .task-title {
+  color: rgb(81, 81, 81);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.score {
+  color: grey;
+  margin-right: 20px;
+  font-size: 10px;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.score span {
+  color: grey;
+}
+
+.x-completed {
+  font-size: 20px;
+}
+
+.summary-puncts {
+  font-size: 16px;
+}
+
+.task-setting {
+  width: 30px;
+  height: 30px;
+  font-size: 21px;
+  font-weight: 900;
+  background-color: transparent;
+  border: 1px solid rgba(128, 128, 128, 0.307);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.task-setting i {
+  color: gray;
+}
+
+/* display: flex; */
+
+.summary {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 50px 0;
+  border-top: 1px solid white;
+  padding: 25px 0;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.163);
+}
+
+.summary .pomos {
+  color: rgb(228, 228, 228);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.big-num {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.dash {
+  font-size: 10px;
+}
+
+.finish-at {
+  color: rgb(228, 228, 228);
+}
+
+.time-finish {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* create task menu */
+
+.create-task-menu {
+  display: none;
+  background-color: white;
+  border-radius: 10px;
+  padding: 35px 0px 0 0px;
+  margin: 10px 0 30px 0;
+}
+
+.top-menu {
+  padding: 0 20px;
+}
+
+.goal-input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
+  color: rgb(51, 51, 51);
+  outline: none;
+  margin-bottom: 25px;
+}
+
+.quantity p {
+  color: rgb(85, 85, 85);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.select-quantity {
+  display: flex;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.select-quantity input {
+  width: 80px;
+  padding: 10px 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.085);
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  color: black;
+  margin-right: 10px;
+}
+
+.quantity-btn {
+  width: 40px;
+  height: 35px;
+  font-size: 20px;
+  background-color: white;
+  box-shadow: 0 0 7px -6px black;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.quantity-btn i {
+  color: rgb(89, 89, 89);
+}
+
+.other-features {
+  display: flex;
+  gap: 15px;
+}
+
+.other-features button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgb(152, 152, 152);
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  background-color: rgb(222, 222, 222);
+  padding: 15px 20px;
+  border-radius: 0 0 10px 10px;
+  margin-top: 15px;
+}
+
+.save-btn {
+  background-color: rgb(53, 53, 53);
+  border: none;
+  font-size: 14px;
+  padding: 7px 20px;
+  border-radius: 5px;
+}
+
+.cancel-btn {
+  background-color: transparent;
+  color: rgb(132, 132, 132);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* edit task menu */
+
+.edit-task-menu {
+  background-color: white;
+  border-radius: 10px;
+  padding: 35px 0px 0 0px;
+  margin: 10px 0 30px 0;
+}
+
+.top-menu {
+  padding: 0 20px;
+}
+
+.goal-input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
+  color: rgb(51, 51, 51);
+  outline: none;
+  margin-bottom: 25px;
+}
+
+.quantity p {
+  color: rgb(85, 85, 85);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.select-quantity {
+  display: flex;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.select-quantity input {
+  width: 80px;
+  padding: 10px 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.085);
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  color: black;
+  margin-right: 10px;
+}
+
+.quantity-btn {
+  width: 40px;
+  height: 35px;
+  font-size: 20px;
+  background-color: white;
+  box-shadow: 0 0 7px -6px black;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.quantity-btn i {
+  color: rgb(89, 89, 89);
+}
+
+.other-features {
+  display: flex;
+  gap: 15px;
+}
+
+.other-features button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgb(152, 152, 152);
+}
+
+.controls-edit {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(222, 222, 222);
+  padding: 15px 20px;
+  border-radius: 0 0 10px 10px;
+  margin-top: 15px;
+}
+
+.controls-edit div {
+  display: flex;
+  align-items: center;
+}
+
+.controls-edit .right-controls {
+  gap: 20px;
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: rgb(132, 132, 132);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.save-btn {
+  background-color: rgb(53, 53, 53);
+  border: none;
+  font-size: 14px;
+  padding: 7px 20px;
+  border-radius: 5px;
+}
+
+.cancel-btn {
+  background-color: transparent;
+  color: rgb(132, 132, 132);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/*  */
+
+section {
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.zoom-container {
+  display: flex;
+  width: 7 00px;
+  box-shadow: 0 0 20px 0 rgb(0, 0, 0);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.zoom-container img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.section-get-age {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-get-age .title {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.section-get-age input {
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+.submit {
+  margin-top: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transform: translateX(0);
+  transition: all 0.2s ease;
+}
+
+.submit:hover {
+  transform: translateY(-5px);
+  background-color: rgb(226, 226, 226);
+}
+
+.result {
+  color: white !important;
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: underline;
+}

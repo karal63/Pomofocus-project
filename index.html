@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <button class="logo">Promofocus</button>
+        <div class="nav-right">
+          <button class="report">Report</button>
+          <button class="settings">Settings</button>
+          <button class="sign-in">Sign in</button>
+          <button class="more-options"><i class="ri-more-2-line"></i></button>
+        </div>
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="timer-container">
+        <div class="modes">
+          <button class="mode pomodoro-mode active-mode">Pomodoro</button>
+          <button class="mode short-break-mode">Short Break</button>
+          <button class="mode long-break-mode">Long Break</button>
+        </div>
+        <div class="timer">25:00</div>
+        <div class="manipulation-btns">
+          <button class="start-btn">Start</button>
+          <button class="next-btn"><i class="ri-skip-right-fill"></i></button>
+        </div>
+      </div>
+
+      <div class="description">
+        <span class="amount-of-times">#0</span>
+        <p class="desc-p">Time to focus!</p>
+      </div>
+
+      <div class="tasks-container">
+        <div class="tasks-header">
+          <span>Tasks</span>
+          <button><i class="ri-more-2-line"></i></button>
+        </div>
+
+        <div class="tasks-list"></div>
+
+        <!-- create task menu -->
+
+        <div class="create-task-menu">
+          <div class="top-menu">
+            <input
+              type="text"
+              class="goal-input"
+              placeholder="What are you working on?"
+            />
+            <div class="quantity">
+              <p>Est Pomodoros</p>
+              <div class="select-quantity">
+                <input value="1" class="quantity-input" type="text" />
+                <button class="plus-btn quantity-btn">
+                  <i class="ri-arrow-up-s-fill"></i>
+                </button>
+                <button class="minus-btn quantity-btn">
+                  <i class="ri-arrow-down-s-fill"></i>
+                </button>
+              </div>
+            </div>
+            <div class="other-features">
+              <button class="add-note">+ Add Note</button>
+              <button class="add-project">+ Add Project</button>
+            </div>
+          </div>
+          <div class="controls">
+            <button class="cancel-btn">Cancel</button>
+            <button class="save-btn">Save</button>
+          </div>
+        </div>
+
+        <div id="add-task-btn">
+          <i class="ri-add-circle-line"></i>
+          <span>Add Task</span>
+        </div>
+
+        <div class="summary">
+          <div class="pomos">
+            Pomos:
+            <div class="pomos-score">
+              <span class="first-num big-num">1</span>
+              <span class="dash">/</span>
+              <span class="counted-quantity big-num">3</span>
+            </div>
+          </div>
+          <div class="finish-at">
+            Finish At: <span class="time-finish">10:46</span> (<span
+              class="summary-time-hours"
+            >
+              0.4h</span
+            >)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <audio id="sound" src="ambient-flute-notification-3-185275.mp3"></audio>
+
+    <section>
+      <div class="zoom-container">
+        <img class="zoom-img" src="revuelto_over_01_m.webp" alt="" />
+      </div>
+    </section>
+
+    <div class="section-get-age">
+      <p class="title">Enter your age:</p>
+      <div class="inputs">
+        <input type="text" class="age-selector" style="color: black" />
+        <input
+          type="date"
+          class="date-selector"
+          style="color: black"
+          name=""
+          id=""
+        />
+      </div>
+      <input type="submit" style="color: black" class="submit" value="Submit" />
+      <p style="color: black" class="result"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
